@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="trivia.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+
+    </head>
+
+    <script>
+
+        // TODO: Add code to check answers to questions
+         
+        document.addEventListener('DOMContentLoaded', function(){
+
+            let correct = document.querySelector('#correct');
+            correct.addEventListener('click', function(){
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#message1').innerHTML = 'Correct!';
+            });
+
+            let incorrects = document.querySelectorAll('.incorrect');
+            for (let i = 0; i<incorrects.length; i++){
+                incorrects[i].addEventListener('click', function(){
+                incorrects[i].style.backgroundColor = 'red';
+                document.querySelector('#message1').innerHTML = 'Incorrect!';
+                });
+             }
+
+            document.querySelector('#submitButton').addEventListener('click', function(){
+                let input = document.querySelector('input');
+                let feedback = document.querySelector('#message2');
+                if (input.value == 'Germany'){
+                    input.style.color = 'green';
+                    feedback.innerHTML = 'Correct!';
+                } else {
+                   input.style.color = 'red';
+                   feedback.innerHTML = 'Incorrect!';
+                }
+             });
+        });
+
+    </script>
+
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Who is the first President of Indonesia?</h3>
+                <button class="incorrect">Jokowi</button>
+                <button class="incorrect">Soeharto</button>
+                <button id="correct">Soekarno</button>
+                <button class="incorrect">B.J Habibie</button>
+                <p id="message1"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>In which country is Berlin?</h3>
+                <input autocomplete="off" autofocus id="answer" type="text" placeholder="Put your answer" required>
+                <button id="submitButton" type="submit">Submit</button>
+                <p id="message2"></p>
+
+            </div>
+
+        </div>
+    </body>
+
+
+</html>
